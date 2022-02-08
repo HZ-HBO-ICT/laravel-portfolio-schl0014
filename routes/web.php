@@ -1,6 +1,13 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\VoetbalController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RacingController;
+use App\Http\Controllers\FAQController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +35,15 @@ Route::get('/posts/{post}', function ($post) {
     ]);
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/',[WelcomeController::class,'show'] );
+Route::get('/profile',[ProfileController::class,'show'] );
+Route::get('/racing',[RacingController::class,'show'] );
+Route::get('/blog',[BlogController::class,'show'] );
+Route::get('/dashboard',[DashboardController::class,'show'] );
+Route::get('/voetbal',[VoetbalController::class,'show'] );
+Route::get('/faq',[FAQController::class,'show'] );
+
