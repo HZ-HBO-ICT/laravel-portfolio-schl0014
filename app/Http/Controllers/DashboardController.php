@@ -10,7 +10,8 @@ class DashboardController extends Controller
     /*
      * return the view dashboard
      */
-    public function show(){
+    public function show()
+    {
         return view('dashboard');
     }
 }
