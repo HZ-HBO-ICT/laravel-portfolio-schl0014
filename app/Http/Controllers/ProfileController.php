@@ -9,7 +9,7 @@ class ProfileController extends Controller
     /*
      * return the view profile
      */
-    public function show()
+     public function show()
     {
         return view('profile');
     }

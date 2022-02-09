@@ -9,7 +9,7 @@ class VoetbalController extends Controller
     /*
      * return the view voetbal
      */
-    public function show()
+     public function show()
     {
         return view('voetbal');
     }
