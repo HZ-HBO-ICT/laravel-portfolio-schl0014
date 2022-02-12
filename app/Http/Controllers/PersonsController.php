@@ -4,9 +4,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Person;
-//use DB;
 
-use Illuminate\Support\Facades\DB;
+//use DB;
 
 //use App\Person;
 
