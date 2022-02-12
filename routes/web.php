@@ -6,7 +6,8 @@ use App\Http\Controllers\VoetbalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RacingController;
-use App\Http\Controllers\FAQController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\PersonsController;
 
 
 /*
@@ -40,10 +41,11 @@ Route::get('/posts/{post}', function ($post) {
 //});
 
 Route::get('/',[WelcomeController::class,'show'] );
+//Route::get('/{name}',[PersonsController::class,'show'] );
 Route::get('/profile',[ProfileController::class,'show'] );
 Route::get('/racing',[RacingController::class,'show'] );
 Route::get('/blog',[BlogController::class,'show'] );
 Route::get('/dashboard',[DashboardController::class,'show'] );
 Route::get('/voetbal',[VoetbalController::class,'show'] );
-Route::get('/faq',[FAQController::class,'show'] );
+Route::get('/faq',[FaqController::class,'show'] );
 

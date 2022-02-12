@@ -25,7 +25,7 @@
     </style>
 
     <title>FAQ</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
@@ -58,7 +58,8 @@
                 <h1>
                     Wat zijn de instructies als je je auto wilt parkeren bij de HZ-parkeerplaats?
                 </h1>
-                <a class="block-faq white" href="https://hz.nl/over-de-hz/contact/middelburg" target="blanket">Antwoord</a>
+                <a class="block-faq white" href="https://hz.nl/over-de-hz/contact/middelburg"
+                   target="blanket">Antwoord</a>
                 <h1 style="margin-top: 124px">
                     Wat moet je doen als je ziek bent / symptomen vertoont van
                     coronavirus?
@@ -75,7 +76,13 @@
                     via je HZ pas op de printer te leggen. Deze scan wordt dan door
                     gestuurd naar print.hz.nl. Hier kun je je ingescande A4 vinden en op
                     je computer zetten.
+                    <ul>
+                        @foreach($faqs as $faq)
+                            <li>{{$faq->question}}  </li>
+                        @endforeach
+                    </ul>
                 </p>
+
             </div>
         </div>
     </article>
