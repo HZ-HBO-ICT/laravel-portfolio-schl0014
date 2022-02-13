@@ -10,14 +10,9 @@ class Grade extends Model
     use HasFactory;
 
     /**
-     * @return void set something to complete;
+     * @param $grade the grade of the new thinf
+     * @return void return the add results
      */
-    public function complete()
-    {
-        $this->completed = true;
-        $this->save();
-    }
-
     public function addResult($grade)
     {
         if ($this->beste_grade < $grade) {
@@ -28,6 +23,15 @@ class Grade extends Model
             }
             $this->save();
         }
+    }
+
+    /**
+     * @return void set something to complete;
+     */
+    public function complete()
+    {
+        $this->completed = true;
+        $this->save();
     }
 }
 
