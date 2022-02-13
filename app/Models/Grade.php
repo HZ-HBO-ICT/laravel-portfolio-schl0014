@@ -34,4 +34,3 @@ class Grade extends Model
         $this->save();
     }
 }
-
