@@ -6,7 +6,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Database Connection Person
+    | Default Database Connection mysql
     |--------------------------------------------------------------------------
     |
     | Here you may specify which of the database connections below you wish

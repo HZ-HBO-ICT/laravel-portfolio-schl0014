@@ -1,9 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="nl">
-
-<head>
-    <style>
+@extends('layout')
+@section('style')
         /* text color */
         h2 {
             color: black;
@@ -21,27 +17,15 @@
         img:hover {
             transform: scale(1.2);
         }
-    </style>
+@endsection()
+
 
     <title>voetbal</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/text-box.css" />
 </head>
 
-<body>
-<!--navigatiebar  -->
-<nav class="navbar">
-    <a href="/">Home</a>
-    <a href="profile">Profile</a>
-    <a href="dashboard">Dashboard</a>
-    <a href="faq">FAQ</a>
-    <a href="blog">Blog</a>
-</nav>
-<!-- columns met text -->
-<main class="main">
-    <article>
-        <div class="row">
-            <div class="column left">
+@section('left-row')
                 <br /><br />
 
                 <ul>
@@ -59,8 +43,8 @@
                         kleine gehucht Spui. Dit is een plaatsje dat tussen Axel en Terneuzen ligt.
                     </p>
                 </article>
-            </div>
-            <div class="column middle">
+                @endsection()
+           @section('middle-row')
                 <article>
                     <h2>Wie ben ik?</h2>
                     <h2>Niek Schlooz</h2>
@@ -75,8 +59,8 @@
                         de foto aan de linkerkant.
                     </p>
                 </article>
-            </div>
-            <div class="column right">
+                @endsection()
+            @section('right-row')
                 <img style="margin-top: 128px" src="img/EPuJz8jW4AAkrP_.jfif" width="250" height="250"
                      class="center" alt="foto van de jeugd onder 19 voetbalteam" />
                 <article>
@@ -86,16 +70,7 @@
                         en op zaterdag speel ik wedstrijd.
                     </p>
                 </article>
-            </div>
-        </div>
-    </article>
-</main>
-<br />
-
-<!-- footer -->
-<div class="footer">
-    <h2 class="white">Made By Niek Schlooz</h2>
-</div>
-</body>
-
-</html>
+                @endsection()
+@section('white-footer')
+    class= "white"
+@endsection()

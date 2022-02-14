@@ -7,3 +7,5 @@
     <a href="faq">FAQ</a>
     <a href="blog">Blog</a>
 </nav>
+{{--{{\http\Env\Request::path('racing') ? @yield('footer-racing') :@yield('footer')}}--}}
+// ToDo: vragen why dit is

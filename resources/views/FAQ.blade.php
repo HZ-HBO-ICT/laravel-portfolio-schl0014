@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="nl">
+@extends('layout')
 
-<head>
-    <style>
+@section('style')
         /* background colors */
         body {
             background-image: linear-gradient(-45deg, lightgrey, cyan);
@@ -22,27 +20,13 @@
         h1 {
             text-align: center;
         }
-    </style>
+@endsection
 
     <title>FAQ</title>
-    <link rel="stylesheet" href="css/style.css"/>
-</head>
+{{--    <link rel="stylesheet" href="css/style.css"/>--}}
+{{--</head>--}}
 
-<body>
-<!--navigatiebar  -->
-<nav class="navbar">
-    <a href="/">Home</a>
-    <a href="profile">Profile</a>
-    <a href="dashboard">Dashboard</a>
-    <a href="faq">FAQ</a>
-    <a href="blog">Blog</a>
-</nav>
-
-<!-- rijen met text -->
-<main class="main">
-    <article>
-        <div class="row">
-            <div class="column left">
+@section('left-row')
                 <h1 style="margin: 20px">
                     Hoe boek je een projectruimte in een van de vleugels?
                 </h1>
@@ -53,8 +37,8 @@
                     Hoe print je een document vanaf je laptop bij de HZ?
                 </h1>
                 <a class="block-faq white" href="https://print.hz.nl/index.cfm" target="blanket">Antwoord</a>
-            </div>
-            <div class="column middle">
+@endsection()
+@section('middle-row')
                 <h1>
                     Wat zijn de instructies als je je auto wilt parkeren bij de HZ-parkeerplaats?
                 </h1>
@@ -66,8 +50,8 @@
                 </h1>
                 <a class="block-faq white" href="img/20201001-Schema-Wat-te-doen-bij-een-mogelijke-coronabesmetting.pdf"
                    target="blanket">Pdf met het antwoord</a>
-            </div>
-            <div class="column right">
+@endsection()
+ @section('right-row')
                 <h1 style="margin-top: 128px">
                     Hoe scan je een document en stuur je het naar je laptop bij de HZ?
                 </h1>
@@ -83,16 +67,5 @@
                     </ul>
                 </p>
 
-            </div>
-        </div>
-    </article>
-</main>
+ @endsection()
 
-<!-- footer -->
-
-<div class="footer">
-    <h2>Made By Niek Schlooz</h2>
-</div>
-</body>
-
-</html>

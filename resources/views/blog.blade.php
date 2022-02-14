@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="nl">
-
-<head>
-    <style>
+@extends('layout')
+@section('style')
         /* background image */
         body {
             background-image: url("img/Best-50-Non-Copyrighted-Backgrounds-on-HipWallpaper-Non-.png");
@@ -10,27 +7,12 @@
             background-attachment: fixed;
             background-size: cover;
         }
-    </style>
+@endsection()
     <title>blog</title>
-    <link rel="stylesheet" href="css/style.css" />
+{{--    <link rel="stylesheet" href="css/style.css" />--}}
     <link rel="stylesheet" href="css/text-box.css" />
-</head>
-
-<body>
-<!--navigatiebar  -->
-<nav class="navbar">
-    <a href="/">Home</a>
-    <a href="profile">Profile</a>
-    <a href="dashboard">Dashboard</a>
-    <a href="faq">FAQ</a>
-    <a href="blog">Blog</a>
-</nav>
-
-<!-- rijen met text -->
-<main class="main">
-    <article>
-        <div class="row">
-            <div style="text-align: center;" class="column left">
+{{--</head>--}}
+@section('left-row')
                 <article>
                     <h1>Your surprise</h1>
                     <p>
@@ -78,8 +60,8 @@
                     zitten. Daarna ging ik met een paar vrienden van me in het examenjaar een elektrische kart maken
                     waardoor ik al wat kennis heb over samenwerking en het benaderen van bedrijven.
                 </p>
-            </div>
-            <div style="text-align: center;" class="column middle">
+@endsection()
+ @section('middle-row')
                 <article>
                     <h1>Maxxton</h1>
                     <p>
@@ -111,8 +93,8 @@
                         voordelen hiervan.
                     </p>
                 </article>
-            </div>
-            <div style="text-align:center;" class="column right">
+ @endsection()
+ @section('right-row')
                 <article>
                     <h1>Cisco</h1>
                     <p>
@@ -157,15 +139,5 @@
                         opdracht</a></p>
 
 
-            </div>
-        </div>
-    </article>
-</main>
+                @endsection()
 
-<!-- footer -->
-<div class="footer">
-    <h2>Made By Niek Schlooz</h2>
-</div>
-</body>
-
-</html>

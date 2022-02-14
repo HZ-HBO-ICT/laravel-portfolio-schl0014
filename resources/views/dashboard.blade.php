@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="nl">
-
-<head>
-    <style>
+@extends('layout')
+@section('style')
         /* background color */
         body {
             background-image: linear-gradient(90deg, darkblue, darkred);
@@ -23,21 +20,13 @@
             border: 2px solid black;
             background-color: skyblue;
         }
-    </style>
+@endsection
 
     <title>dashboard</title>
-    <link rel="stylesheet" href="css/style.css" />
-</head>
+{{--    <link rel="stylesheet" href="css/style.css" />--}}
+{{--</head>--}}
 
-<body>
-<!--navigatiebar  -->
-<nav class="navbar">
-    <a href="/">Home</a>
-    <a href="profile">Profile</a>
-    <a href="dashboard">Dashboard</a>
-    <a href="faq">FAQ</a>
-    <a href="blog">Blog</a>
-</nav>
+
 
 <table style="width: 80%; margin: 124px">
     <tr>
@@ -148,11 +137,4 @@
     </tr>
     <tr></tr>
 </table>
-<!-- footer -->
 
-<div class="footer">
-    <h2>Made By Niek Schlooz</h2>
-</div>
-</body>
-
-</html>

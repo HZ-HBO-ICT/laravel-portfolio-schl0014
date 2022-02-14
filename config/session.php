@@ -117,7 +117,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Person
+    | Session Cookie mysql
     |--------------------------------------------------------------------------
     |
     | Here you may change the name of the cookie used to identify a session
