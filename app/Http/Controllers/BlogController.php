@@ -11,8 +11,8 @@ class BlogController extends Controller
      */
     public function show()
     {
-        return view('blog',[
-        'articles' => Article::all()
+        return view('blog', [
+            'articles' => Article::all()
         ]);
     }
 }

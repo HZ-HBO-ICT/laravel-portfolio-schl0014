@@ -54,6 +54,6 @@
          </h1>
          <p class="block-faq white">{{$faqs[$i]->answer}}</p>
      @endfor()
-     
+
  @endsection()
 
