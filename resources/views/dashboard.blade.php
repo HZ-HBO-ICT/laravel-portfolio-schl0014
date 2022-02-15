@@ -41,7 +41,7 @@
         <td rowspan="3">1</td>
         <td>Programme and Career Orientation</td>
         <td>2,5 EC</td>
-        <td>assesment</td>
+        <td>assessment</td>
         <td></td>
         <td></td>
     </tr>
@@ -89,7 +89,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>assesment</td>
+        <td>assessment</td>
         <td></td>
         <td></td>
     </tr>
@@ -107,13 +107,13 @@
         <td></td>
     </tr>
     <tr>
-        <td>assesment</td>
+        <td>assessment</td>
         <td></td>
         <td></td>
     </tr>
     <tr>
         <td rowspan="3">The entire year</td>
-        <td>portflio</td>
+        <td>portfolio</td>
         <td>12,5 EC</td>
         <td>portfolio</td>
         <td></td>

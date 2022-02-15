@@ -17,6 +17,7 @@
 
 
 @section('left-row')
+    <ul style="margin-top: 128px">
     <li><a href="football">voetbal</a></li>
     <li><a href="racing">racing</a></li>
     </ul>

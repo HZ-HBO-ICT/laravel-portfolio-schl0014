@@ -1,5 +1,6 @@
 @extends('layout')
 @section('style')
+
     /* text info color */
     h1 {
     color: #ffffff;
@@ -29,9 +30,9 @@
 
 
 @section('left-row')
-    <br/><br/>
 
-    <ul>
+
+    <ul style="margin-top: 32px" >
         <li><a class="a" href="profile">profile</a></li>
         <li><a class="a" href="football">voetbal</a></li>
     </ul>

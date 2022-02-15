@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Grade;
 class DashboardController extends Controller
 {
     /*
@@ -9,6 +9,8 @@ class DashboardController extends Controller
      */
     public function show()
     {
-        return view('dashboard');
+        return view('dashboard', [
+            'grades' => Grade::all()
+        ]);
     }
 }
