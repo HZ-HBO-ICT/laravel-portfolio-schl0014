@@ -66,6 +66,7 @@
                     veel
                     onderdelen nog niet kennis heb gemaakt.
                 </p>
+
                 @endsection()
             @section('middle-row')
                 <h1>Waarom ICT?</h1>
