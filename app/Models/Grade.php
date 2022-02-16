@@ -33,4 +33,5 @@ class Grade extends Model
         $this->completed = true;
         $this->save();
     }
+
 }

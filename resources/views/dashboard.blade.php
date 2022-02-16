@@ -37,104 +37,16 @@
         <th>Grade</th>
         <th>EC got (NBSA boundary= 45EC )</th>
     </tr>
+    @foreach($grades as $grade)
     <tr>
-        <td rowspan="3">1</td>
-        <td>Programme and Career Orientation</td>
-        <td>2,5 EC</td>
-        <td>assessment</td>
-        <td></td>
-        <td></td>
+        <td>{{$grade->quartile}}</td>
+        <td>{{$grade->course_name}}</td>
+        <td>{{$grade->EC}}</td>
+        <td>{{$grade->Exam}}</td>
+        <td>{{$grade->beste_grade}}</td>
+        <td>{{$grade->completed}}</td>
     </tr>
-    <tr>
-        <td>computer Science Basics</td>
-        <td>5 EC</td>
-        <td>Writing exam</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>programming Basics</td>
-        <td>5EC</td>
-
-        <td>Case study exam</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td rowspan="2">2</td>
-        <td rowspan="2">Object Oriented programming</td>
-        <td rowspan="2">10 EC</td>
-        <td>case Study</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>project</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td rowspan="4">3</td>
-        <td>Framework development</td>
-        <td>5EC</td>
-        <td>Case Study</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td rowspan="3">Framework Project 1</td>
-        <td rowspan="3">7,5EC</td>
-        <td>project</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>assessment</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Report</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td rowspan="2">4</td>
-        <td rowspan="2">framework Project 2</td>
-        <td rowspan="2">10 EC</td>
-        <td>project</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>assessment</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td rowspan="3">The entire year</td>
-        <td>portfolio</td>
-        <td>12,5 EC</td>
-        <td>portfolio</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>personality 2</td>
-        <td>2,5 EC</td>
-        <td>attend</td>
-        <td></td>
-
-        <td></td>
-    </tr>
-    <tr>
-        <td>personality 1</td>
-        <td>2,5 EC</td>
-        <td>attend</td>
-        <td></td>
-
-        <td rowspan="2"></td>
-    </tr>
-    <tr></tr>
+    @endforeach()
+}
 </table>
 
