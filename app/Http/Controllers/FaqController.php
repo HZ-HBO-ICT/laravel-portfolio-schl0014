@@ -53,10 +53,8 @@ class FaqController extends Controller
         $faq->save();
 
         return redirect('/faq');
-
     }
-
-
+    
     /**
      * Show the form for editing the specified resource.
      *
