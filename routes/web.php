@@ -40,20 +40,8 @@ Route::get('/posts/{post}', function ($post) {
 Route::get('/',[WelcomeController::class,'show'] );
 Route::get('/profile',[ProfileController::class,'show'] );
 Route::get('/racing',[RacingController::class,'show'] );
-Route::post('/blog',[BlogController::class,'store']);
-Route::get('/blog',[BlogController::class,'create']);
-Route::get('/blog',[BlogController::class,'show'] );
-Route::get('/blog/{article}/edit',[BlogController::class,'edit'] );
-Route::put('/blog/{article}',[BlogController::class,'update']);
-Route::delete('/blog/{article}',[BlogController::class,'destroy']);
 Route::get('/dashboard',[DashboardController::class,'show'] );
 Route::get('/football',[FootballController::class,'show'] );
-Route::post('/faq',[FaqController::class,'store']);
-Route::get('/faq',[FaqController::class,'create']);
-Route::get('/faq',[FaqController::class,'show'] );
-Route::get('/faq/{faq}/edit',[FaqController::class,'edit'] );
-Route::put('/faq/{faq}',[FaqController::class,'update']);
-Route::delete('/faq/{faq}',[FaqController::class,'destroy']);
-//Route::resource('/faq', FaqController::class);
-//Route::resource('/blog', BlogController::class);
+Route::resource('/faq', FaqController::class);
+Route::resource('/blog', BlogController::class);
 
