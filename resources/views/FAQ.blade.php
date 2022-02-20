@@ -27,19 +27,10 @@
 {{--</head>--}}
 
 @section('left-row')
-    @for($i=0;$i<2;$i++)
-        <h1 style="margin-top: 64px">
-            {{$faqs[$i]->question}}
-        </h1>
-        <a class="block-faq white"
-           href="{{$faqs[$i]->link}}"
-           target="blanket">{{$faqs[$i]->answer}}</a>
 
-
-    @endfor()
     <div id="wrapper">
         <div id="question" class="container">
-                        <h1 class="heading has-text-weight-bold is-size-4">nieuwe vraag</h1>
+            <h1 class="heading has-text-weight-bold is-size-4">nieuwe vraag</h1>
 
             <form method="POST" action="/faq">
                 @csrf
@@ -72,25 +63,60 @@
             </form>
         </div>
     </div>
+    @for($i=0;$i<floor(count($faqs)*(1/3));$i++)
+        <h1 style="margin-top: 64px">
+            {{$faqs[$i]->question}}
+        </h1>
+        @if($faqs[$i]->link===null)
+            <p class="block-faq white">{{$faqs[$i]->answer}}</p>
+        @else
+            <a class="block-faq white"
+               href="{{$faqs[$i]->link}}"
+               target="blanket">{{$faqs[$i]->answer}}</a>
 
-                @endsection()
-                @section('middle-row')
+        @endif()
+        <a href="faq/{{$faqs[$i]->id}}/edit" target="blanket">
+            <button>edit</button>
+        </a>
 
-                    @for($i=2;$i<4;$i++)
-                        <h1 style="margin-top: 64px">
-                            {{$faqs[$i]->question}}
-                        </h1>
-                        <a class="block-faq white"
-                           href="{{$faqs[$i]->link}}"
-                           target="blanket">{{$faqs[$i]->answer}}</a>
-                    @endfor()
-                @endsection()
-                @section('right-row')
-                    @for($i=4;$i<count($faqs);$i++)
-                        <h1 style="margin-top: 64px">
-                            {{$faqs[$i]->question}}
-                        </h1>
-                        <p class="block-faq white">{{$faqs[$i]->answer}}</p>
+    @endfor()
+@endsection()
+@section('middle-row')
+
+    @for($i=floor(count($faqs)*(1/3));$i<floor(count($faqs)*(2/3)) ;$i++)
+        <h1 style="margin-top: 64px">
+            {{$faqs[$i]->question}}
+        </h1>
+        @if($faqs[$i]->link===null)
+            <p class="block-faq white">{{$faqs[$i]->answer}}</p>
+        @else
+            <a class="block-faq white"
+               href="{{$faqs[$i]->link}}"
+               target="blanket">{{$faqs[$i]->answer}}</a>
+
+
+
+        @endif()
+        <a href="faq/{{$faqs[$i]->id}}/edit" target="blanket">
+            <button>edit</button>
+        </a>
+    @endfor()
+@endsection()
+@section('right-row')
+    @for($i=floor(count($faqs)*(2/3)) ;$i<count($faqs) ;$i++)
+        <h1 style="margin-top: 64px">
+            {{$faqs[$i]->question}}
+        </h1>
+        @if($faqs[$i]->link===null)
+            <p class="block-faq white">{{$faqs[$i]->answer}}</p>
+        @else
+            <a class="block-faq white"
+               href="{{$faqs[$i]->link}}"
+               target="blanket">{{$faqs[$i]->answer}}</a>
+        @endif()
+        <a href="faq/{{$faqs[$i]->id}}/edit" target="blanket">
+            <button>edit</button>
+        </a>
     @endfor()
 
 @endsection()

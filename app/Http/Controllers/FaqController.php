@@ -54,16 +54,18 @@ class FaqController extends Controller
 
         return redirect('/faq');
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+
+        $faq = Faq::find($id);
+        return view('faqs.edit',['faq'=>$faq]);
     }
 
     /**
@@ -73,9 +75,17 @@ class FaqController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+
+        $faq = Faq::find($id);
+        $faq->question = request('question');
+        $faq->answer = request('answer');
+        $faq->link = request('link');
+
+        $faq->save();
+
+        return redirect('/faq');
     }
 
     /**
@@ -86,6 +96,9 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $faq = Faq::find($id);
+        $faq->delete();
+
+        return redirect('/faq');
     }
 }

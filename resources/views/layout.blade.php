@@ -13,18 +13,19 @@
         }
     </style>
     <title>Home</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">`
+{{--    <link rel="stylesheet" href="./css/style.css"/>--}}
 </head>
 
 <body>
 
 <!--navigatiebar  -->
 <nav class="navbar">
-    <a class ="{{Request::path()==='/'? 'background' : ''}}" href="/">Home</a>
-    <a class ="{{Request::path()==='profile'? 'background' : ''}}" href="profile">Profile</a>
-    <a class ="{{Request::path()==='dashboard'? 'background' : ''}}" href="dashboard">Dashboard</a>
-    <a class ="{{Request::path()==='faq'? 'background' : ''}}" href="faq">FAQ</a>
-    <a class ="{{Request::path()==='blog'? 'background' : ''}}" href="blog">Blog</a>
+    <a class ="{{Request::path()==='/'? 'background' : ''}}" href="{{asset('/')}}">Home</a>
+    <a class ="{{Request::path()==='profile'? 'background' : ''}}" href="{{asset('profile')}}">Profile</a>
+    <a class ="{{Request::path()==='dashboard'? 'background' : ''}}" href="{{{asset('dashboard')}}}">Dashboard</a>
+    <a class ="{{Request::path()==='faq'? 'background' : ''}}" href="{{asset('faq')}}">FAQ</a>
+    <a class ="{{Request::path()==='blog'? 'background' : ''}}" href="{{asset('blog')}}">Blog</a>
 </nav>
 <!-- rijen met text -->
 <main class="main">

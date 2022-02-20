@@ -14,17 +14,9 @@
 {{--</head>--}}
 @section('left-row')
 
-    @for($i=0;$i<2;$i++)
-        <article>
-            <h1>{{$articles[$i]->title}}</h1>
-            <p>
-                {{$articles[$i]->body}}
-            </p>
-        </article>
-    @endfor
+
     <div id="wrapper">
         <div id="question" class="container">
-            <h1 class="heading has-text-weight-bold is-size-4">nieuwe vraag</h1>
 
             <form method="POST" action="/blog">
                 @csrf
@@ -64,26 +56,48 @@
             </form>
         </div>
     </div>
+
+
+        @for($i=0;$i<floor(count($articles)*(1/3));$i++)
+            <article>
+                <h1>{{$articles[$i]->title}}</h1>
+                <p>
+                    {{$articles[$i]->body}}
+                    <a href="blog/{{$articles[$i]->id}}/edit" target="blanket">
+                        <button>edit</button>
+                    </a>
+                </p>
+
+            </article>
+        @endfor
 @endsection()
  @section('middle-row')
 
-     @for($i=2;$i<4;$i++)
+     @for($i=floor(count($articles)*(1/3));$i<floor(count($articles)*(2/3)) ;$i++)
          <article>
              <h1>{{$articles[$i]->title}}</h1>
              <p>
                  {{$articles[$i]->body}}
+                 <a href="blog/{{$articles[$i]->id}}/edit" target="blanket">
+                     <button>edit</button>
+                 </a>
              </p>
+
          </article>
      @endfor
  @endsection()
  @section('right-row')
 
-     @for($i=4;$i<count($articles);$i++)
+     @for($i=floor(count($articles)*(2/3)) ;$i<count($articles) ;$i++)
          <article>
              <h1>{{$articles[$i]->title}}</h1>
              <p>
                  {{$articles[$i]->body}}
-                 <a href="{{$articles[$i]->link}}" target="blanket">{{$articles[$i]->link_name}}</a></p>
+                 <a href="{{$articles[$i]->link}}" target="blanket">{{$articles[$i]->link_name}}</a>
+             <a href="blog/{{$articles[$i]->id}}/edit" target="blanket">
+                 <button>edit</button>
+             </a>
+             </p>
 
          </article>
      @endfor
