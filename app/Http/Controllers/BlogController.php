@@ -9,7 +9,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Request;
 
 class BlogController extends Controller
@@ -74,7 +73,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        return view('blogs.edit',['article'=>$article]);
+        return view('blogs.edit', ['article' => $article]);
     }
 
     /**
@@ -83,17 +82,17 @@ class BlogController extends Controller
      * @param Request $request
      * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-            $article = Article::find($id);
-            $article->title = request('title');
-            $article->body = request('body');
-            $article->link = request('link');
-            $article->link_name = request('link_name');
+        $article = Article::find($id);
+        $article->title = request('title');
+        $article->body = request('body');
+        $article->link = request('link');
+        $article->link_name = request('link_name');
 
-            $article->save();
+        $article->save();
 //
-            return redirect('/blog');
+        return redirect('/blog');
     }
 
     /**
