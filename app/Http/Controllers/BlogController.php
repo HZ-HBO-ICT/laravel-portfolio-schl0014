@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\Article;
 use App\Models\Blog;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
