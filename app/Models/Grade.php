@@ -10,7 +10,7 @@ class Grade extends Model
     use HasFactory;
 
     /**
-     * @param $grade the grade of the new thinf
+     * @param $grade the grade of the new things
      * @return void return the add results
      */
     public function addResult($grade)

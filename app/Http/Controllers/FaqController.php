@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\Factory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class FaqController extends Controller
 {
@@ -12,7 +17,7 @@ class FaqController extends Controller
      */
     public function show($id)
     {
-        return view('faq', [
+        return view('faqs.index', [
             'faqs' => Faq::all()
         ]);
     }
@@ -20,11 +25,11 @@ class FaqController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|\Illuminate\Contracts\View\Factory|View
      */
     public function index()
     {
-        return view('faq', [
+        return view('faqs.index', [
             'faqs' => Faq::all()
         ]);
     }
@@ -32,73 +37,70 @@ class FaqController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|\Illuminate\Contracts\View\Factory|View
      */
     public function create()
     {
-        return view('faq');
+        return view('/faqs.index');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(Request $request)
     {
-        $faq = new Faq();
-        $faq->question = request('question');
-        $faq->answer = request('answer');
-        $faq->link = request('link');
-
-        $faq->save();
-
+        Faq::create($this->validateFaq($request));
         return redirect('/faq');
+    }
+
+    /**
+     * @return array
+     */
+    public function validateFaq(Request $request): array
+    {
+        return $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+            'link' => '',
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @param Faq $faq
+     * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit(Faq $faq)
     {
 
-        $faq = Faq::find($id);
-        return view('faqs.edit', ['faq' => $faq]);
+        return view('/faqs/edit', ['faq' => $faq]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Faq $faq
+     * @return Application
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Faq $faq): Application
     {
-
-        $faq = Faq::find($id);
-        $faq->question = request('question');
-        $faq->answer = request('answer');
-        $faq->link = request('link');
-
-        $faq->save();
-
+        $faq->update($this->validateFaq($request));
         return redirect('/faq');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Faq $faq
+     * @return Application
      */
-    public function destroy($id)
+    public function destroy(Faq $faq): Application
     {
-        $faq = Faq::find($id);
         $faq->delete();
 
         return redirect('/faq');

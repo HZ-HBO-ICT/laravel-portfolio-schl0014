@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Article;
+use App\Models\Blog;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Request;
+
 
 class BlogController extends Controller
 {
@@ -18,94 +20,94 @@ class BlogController extends Controller
      */
     public function show()
     {
-        return view('blog', [
-            'articles' => Article::all()
+        return view('blogs.index', [
+            'blogs' => Blog::all()
         ]);
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        return view('blog', [
-            'articles' => Article::all()
+        return view('blogs.index', [
+            'blogs' => Blog::all()
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application
      */
-    public function create()
+    public function create(): Application
     {
-        return view('blog');
+        return view('/blogs.index');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return Application|RedirectResponse|Response|Redirector
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(Request $request)
     {
-        $article = new Article();
-        $article->title = request('title');
-        $article->body = request('body');
-        $article->link = request('link');
-        $article->link_name = request('link_name');
-
-        $article->save();
-
+        Blog::create($this->validateBlog($request));
         return redirect('/blog');
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function validateBlog(Request $request): array
+    {
+        return $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'link' => '',
+            'link_name' => '',
+
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     * @return Application|Factory|View
+     * @param Blog $blog
+     * @return Application
      */
-    public function edit($id)
+    public function edit(Blog $blog): Application
     {
-        $article = Article::find($id);
-        return view('blogs.edit', ['article' => $article]);
+        return view('/blogs/edit', ['blog' => $blog]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
+     * @param Blog $blog
      * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Blog $blog)
     {
-        $article = Article::find($id);
-        $article->title = request('title');
-        $article->body = request('body');
-        $article->link = request('link');
-        $article->link_name = request('link_name');
+        $blog->update($this->validateBlog($request));
 
-        $article->save();
-//
         return redirect('/blog');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return Response
+     * @param Blog $blog
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Blog $blog)
     {
-        $article = Article::find($id);
-        $article->delete();
-
+        $blog->delete();
         return redirect('/blog');
     }
 }

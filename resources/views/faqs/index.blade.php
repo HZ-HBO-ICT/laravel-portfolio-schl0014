@@ -37,7 +37,10 @@
                 <div class="field">
                     <label class="label" for="question">question</label>
                     <div class="control">
-                        <input class="input" type="text" name="question" id="question">
+                        <input class="input  @error('question') is-danger @enderror" type="text" name="question" id="question">
+                        @error('question')
+                        <p class="help is-danger">{{$errors->first('question')}}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -45,7 +48,10 @@
                 <label class="label" for="answer">antwoord</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="answer" id="answer"></textarea>
+                    <textarea class="textarea @error('answer') is-danger @enderror" name="answer" id="answer"></textarea>
+                    @error('answer')
+                    <p class="help is-danger">{{$errors->first('answer')}}</p>
+                    @enderror
                 </div>
 
                 <div class="field"></div>

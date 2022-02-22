@@ -27,14 +27,17 @@
         <div id="question" class="container">
             <h1 class="heading has-text-weight-bold is-size-4">nieuwe vraag</h1>
 
-            <form method="POST" action="/blog/{{$article->id}}">
+            <form method="POST" action="/blog/{{$blog->id}}">
                 @csrf
                 @method('PUT')
                 <div class="field">
-                    <label class="label" for="question">question</label>
-                    <div class="control">
-                        <input class="input" type="text" name="title" id="title"
-                               value="{{$article->title}}">
+                    <label class="label" for="question">title</label>
+                    <div class="control  ">
+                        <input class="input @error('title') is-danger @enderror" type="text" name="title" id="title"
+                               value="{{$blog->title}}">
+                        @error('title')
+                        <p class="help is-danger">{{$errors->first('title')}}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -42,21 +45,24 @@
                 <label class="label" for="body">body</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="body" id="body">{{$article->body}}</textarea>
+                    <textarea class="textarea input @error('body') is-danger @enderror" name="body" id="body">{{$blog->body}}</textarea>
+                    @error('body')
+                    <p class="help is-danger">{{$errors->first('body')}}</p>
+                    @enderror
                 </div>
 
                 <div class="field"></div>
                 <label class="label" for="link">link</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="link" id="link">{{$article->link}}</textarea>
+                    <textarea class="textarea" name="link" id="link">{{$blog->link}}</textarea>
                 </div>
 
                 <div class="field"></div>
                 <label class="label" for="link_name">link_name</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="link_name" id="link_name">{{$article->link_name}}</textarea>
+                    <textarea class="textarea" name="link_name" id="link_name">{{$blog->link_name}}</textarea>
                 </div>
 
                 <div class="field is-grouped"></div>
@@ -67,7 +73,7 @@
             </form>
         </div>
     </div>
-    <form method="POST" action="/blog/{{ $article->id }}">
+    <form method="POST" action="/blog/{{ $blog->id }}">
         @csrf
         @method('DELETE')
         <button type="submit">Delete</button>
