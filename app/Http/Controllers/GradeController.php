@@ -8,7 +8,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 
 class GradeController extends Controller
@@ -48,6 +47,11 @@ class GradeController extends Controller
         return redirect('/grade');
     }
 
+    /**
+     * validate of the grade all completed their requirements
+     * @param Request $request
+     * @return array
+     */
     public function validateGrade(Request $request): array
     {
         return $request->validate([
