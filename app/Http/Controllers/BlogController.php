@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
@@ -56,6 +57,8 @@ class BlogController extends Controller
     }
 
     /**
+     * validate if the all requirement are implemented
+     *
      * @param Request $request
      * @return array
      */
