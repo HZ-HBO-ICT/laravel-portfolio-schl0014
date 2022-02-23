@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);
 Route::get('/racing', [RacingController::class, 'show']);
-Route::get('/dashboard', [DashboardController::class, 'show']);
 Route::get('/football', [FootballController::class, 'show']);
 Route::resource('/faq', FaqController::class);
 Route::resource('/blog', BlogController::class);
