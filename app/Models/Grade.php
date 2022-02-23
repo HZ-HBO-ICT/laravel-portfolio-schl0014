@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Grade extends Model
 {
-    use HasFactory;
+    protected $fillable = ['quartile',
+        'course_name', 'Exam','EC', 'lowest_passing_grade', 'beste_grade', 'completed', 'passed_at'];
 
     /**
      * @param $grade the grade of the new things

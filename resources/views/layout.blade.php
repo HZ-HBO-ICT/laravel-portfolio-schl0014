@@ -23,7 +23,7 @@
 <nav class="navbar">
     <a class ="{{Request::path()==='/'? 'background' : ''}}" href="{{asset('/')}}">Home</a>
     <a class ="{{Request::path()==='profile'? 'background' : ''}}" href="{{asset('profile')}}">Profile</a>
-    <a class ="{{Request::path()==='dashboard'? 'background' : ''}}" href="{{{asset('dashboard')}}}">Dashboard</a>
+    <a class ="{{Request::path()==='grade'? 'background' : ''}}" href="{{{asset('grade')}}}">Dashboard</a>
     <a class ="{{Request::path()==='faq'? 'background' : ''}}" href="{{asset('faq')}}">FAQ</a>
     <a class ="{{Request::path()==='blog'? 'background' : ''}}" href="{{asset('blog')}}">Blog</a>
 </nav>

@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FootballController;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RacingController;
 use App\Http\Controllers\WelcomeController;
@@ -44,5 +45,6 @@ Route::get('/dashboard', [DashboardController::class, 'show']);
 Route::get('/football', [FootballController::class, 'show']);
 Route::resource('/faq', FaqController::class);
 Route::resource('/blog', BlogController::class);
+Route::resource('/grade', GradeController::class);
 
 
