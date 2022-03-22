@@ -97,8 +97,8 @@ class GradeController extends Controller
      */
     public function update(Request $request, Grade $grade)
     {
-        Grade::addResult($grade->EC);
-        $grade->update($this->validateGrade($request));
+//        Grade::addResult($grade->EC);
+            $grade->update($this->validateGrade($request));
         return redirect('/grade');
     }
 

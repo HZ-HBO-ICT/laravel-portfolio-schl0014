@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Client\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -25,7 +25,7 @@ class FaqController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|\Illuminate\Contracts\View\Factory|View
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -37,7 +37,7 @@ class FaqController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|\Illuminate\Contracts\View\Factory|View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -57,6 +57,7 @@ class FaqController extends Controller
     }
 
     /**
+     * @param Request $request
      * @return array
      */
     public function validateFaq(Request $request): array

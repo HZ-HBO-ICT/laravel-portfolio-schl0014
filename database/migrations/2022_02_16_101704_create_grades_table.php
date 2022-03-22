@@ -23,6 +23,8 @@ class CreateGradesTable extends Migration
             $table->decimal('beste_grade')->nullable();
             $table->boolean('completed')->default(false);
             $table->date('passed_at')->nullable();
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->timestamps();
         });
     }
