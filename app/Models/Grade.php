@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Grade extends Model
 {
     protected $fillable = ['quartile',
-        'course_name', 'Exam','EC', 'lowest_passing_grade', 'beste_grade', 'completed', 'passed_at'];
+        'course_name', 'Exam', 'EC', 'lowest_passing_grade', 'beste_grade', 'completed', 'passed_at'];
 
     /**
      * @param $grade the grade of the new things
@@ -35,9 +36,9 @@ class Grade extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function course(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function course(): BelongsTo
     {
         return $this->belongsTo(Course::class);
     }
