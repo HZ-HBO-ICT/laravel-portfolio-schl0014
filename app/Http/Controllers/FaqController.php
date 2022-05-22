@@ -35,16 +35,6 @@ class FaqController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Application|Factory|View
-     */
-    public function create()
-    {
-        return view('/faqs.index');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -54,6 +44,16 @@ class FaqController extends Controller
     {
         Faq::create($this->validateFaq($request));
         return redirect('/faq');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Application|Factory|View
+     */
+    public function create()
+    {
+        return view('/faqs.index');
     }
 
     /**

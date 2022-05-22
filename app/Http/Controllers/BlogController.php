@@ -35,16 +35,6 @@ class BlogController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Application
-     */
-    public function create(): Application
-    {
-        return view('/blogs.index');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -54,6 +44,16 @@ class BlogController extends Controller
     {
         Blog::create($this->validateBlog($request));
         return redirect('/blog');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Application
+     */
+    public function create(): Application
+    {
+        return view('/blogs.index');
     }
 
     /**

@@ -25,16 +25,6 @@ class GradeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Application|Factory|View
-     */
-    public function create()
-    {
-        return view('/grades.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -45,6 +35,16 @@ class GradeController extends Controller
         Grade::create($this->validateGrade($request));
 
         return redirect('/grade');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Application|Factory|View
+     */
+    public function create()
+    {
+        return view('/grades.create');
     }
 
     /**
@@ -98,7 +98,7 @@ class GradeController extends Controller
     public function update(Request $request, Grade $grade)
     {
 //        Grade::addResult($grade->EC);
-            $grade->update($this->validateGrade($request));
+        $grade->update($this->validateGrade($request));
         return redirect('/grade');
     }
 
