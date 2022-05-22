@@ -29,7 +29,7 @@
         <div id="question" class="container">
             <h1 class="heading has-text-weight-bold is-size-4">nieuwe vraag</h1>
 
-            <form method="POST" action="/faq/{{$faq->id}}">
+            <form method="POST" action="/faq/{{$faq->i}}">
                 @csrf
                 @method('PUT')
                 <div class="field">

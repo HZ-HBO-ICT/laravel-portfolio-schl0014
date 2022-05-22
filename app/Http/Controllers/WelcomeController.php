@@ -3,6 +3,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+
 class WelcomeController extends Controller
 {
     /*
@@ -20,7 +22,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        //
+            return response(Blog::all(), 200)
+                ->header('Content-Type', 'application/json');
     }
 
     /**
