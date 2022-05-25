@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FootballController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RacingController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,43 +20,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->middleware(['auth'])->name('welcome');
+Route::get('/',[WelcomeController::class, 'show'])
+->middleware(['auth'])->name('welcome');
 
-Route::get('/profile', function () {
-    return view('profile');
-})->middleware(['auth'])->name('profile');
+Route::get('/profile',[ProfileController::class, 'show'] )->middleware(['auth'])->name('profile');
 
-Route::get('/blog', function () {
-    return view('blog');
-})->middleware(['auth'])->name('blog');
+Route::get('/blog',
+    [BlogController::class,'index']
+)->middleware(['auth'])->name('blog');
 
-Route::get('/racing', function () {
-    return view('racing');
-})->middleware(['auth'])->name('racing');
+Route::get('/racing', [RacingController::class, 'show'])
+    ->middleware(['auth'])->name('racing');
 
-Route::get('/football', function () {
-    return view('football');
-})->middleware(['auth'])->name('football');
+Route::get('/football',[FootballController::class, 'show'])
+    ->middleware(['auth'])->name('football');
 
-Route::get('/faq', function () {
-    return view('faq');
-})->middleware(['auth'])->name('faq');
+Route::get('/faq', [FaqController::class,'index'])
+    ->middleware(['auth'])->name('faq');
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->middleware(['auth'])->name('welcome');
+//Route::get('/welcome', function () {
+//    return view('welcome');
+//})->middleware(['auth'])->name('welcome');
 
-Route::get('/grade', function () {
-        return view('grades\index ');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/grade',
+    [GradeController::class,'index']
+)->middleware(['auth'])->name('dashboard');
 
-Route::get('/', [WelcomeController::class, 'show']);
-Route::get('/profile', [ProfileController::class, 'show']);
-Route::get('/racing', [RacingController::class, 'show']);
-Route::get('/football', [FootballController::class, 'show']);
-Route::resource('/faq', FaqController::class);
-Route::resource('/blog', BlogController::class);
-Route::resource('/grade', GradeController::class);
+//Route::get('/', [WelcomeController::class, 'show']);
+//Route::get('/profile', [ProfileController::class, 'show']);
+//Route::get('/racing', [RacingController::class, 'show']);
+//Route::get('/football', [FootballController::class, 'show']);
+//Route::resource('/faq', FaqController::class);
+//Route::resource('/blog', BlogController::class);
+//Route::resource('/grade', GradeController::class);
 require __DIR__.'/auth.php';
