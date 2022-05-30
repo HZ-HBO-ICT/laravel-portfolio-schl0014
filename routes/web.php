@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FootballController;
@@ -45,6 +46,11 @@ Route::get('/faq', [FaqController::class,'index'])
 Route::get('/grade',
     [GradeController::class,'index']
 )->middleware(['auth'])->name('dashboard');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('authenticatedSession.destroy');
+    Route::get('redirects', [WelcomeController::class, 'index']);
+});
 
 //Route::get('/', [WelcomeController::class, 'show']);
 //Route::get('/profile', [ProfileController::class, 'show']);
