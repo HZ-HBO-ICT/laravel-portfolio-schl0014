@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RacingController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,7 @@ Route::get('/grade',
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('authenticatedSession.destroy');
-    Route::get('redirects', [WelcomeController::class, 'index']);
+    Route::get('redirects', [Dashboard::class, 'index']);
 });
 
 //Route::get('/', [WelcomeController::class, 'show']);
