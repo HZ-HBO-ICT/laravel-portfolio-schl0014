@@ -122,7 +122,7 @@
                       alt="Examenregeling" target="blanket">HZ Examenregeling 2021-2022</a>
                </li>
            </aside>
-           <script src="{{ asset('js/newsAppi.js') }}"></script>
+
        @endsection()
 
 

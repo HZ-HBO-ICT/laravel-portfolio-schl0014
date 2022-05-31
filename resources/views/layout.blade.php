@@ -128,6 +128,8 @@
             <a class="b c" href="https://www.doneeractie.nl/eracup-black-lions-racing-team/-46318" target="blanket">
                 <img alt="doneeractie" src="img/logo-doneeractie.png" width="120" height="100" />
             </a>
+            <div id="news"></div>
+
         </h2>
     </div>
 
@@ -150,3 +152,4 @@
 </body>
 
 </html>
+<script src="{{ asset('js/newsAppi.js') }}"></script>

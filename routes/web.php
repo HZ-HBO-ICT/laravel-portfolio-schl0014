@@ -27,9 +27,9 @@ Route::get('/',[WelcomeController::class, 'show'])
 
 Route::get('/profile',[ProfileController::class, 'show'] )->middleware(['auth'])->name('profile');
 
-Route::get('/blog',
-    [BlogController::class,'index']
-)->middleware(['auth'])->name('blog');
+Route::resource('/blog',
+    BlogController::class
+)->middleware(['auth']);
 
 Route::get('/racing', [RacingController::class, 'show'])
     ->middleware(['auth'])->name('racing');
@@ -37,27 +37,16 @@ Route::get('/racing', [RacingController::class, 'show'])
 Route::get('/football',[FootballController::class, 'show'])
     ->middleware(['auth'])->name('football');
 
-Route::get('/faq', [FaqController::class,'index'])
-    ->middleware(['auth'])->name('faq');
+Route::resource('/faq', FaqController::class)
+    ->middleware(['auth']);
 
-//Route::get('/welcome', function () {
-//    return view('welcome');
-//})->middleware(['auth'])->name('welcome');
-
-Route::get('/grade',
-    [GradeController::class,'index']
-)->middleware(['auth'])->name('dashboard');
+Route::resource('/grade',
+    GradeController::class
+)->middleware(['auth']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('authenticatedSession.destroy');
-    Route::get('redirects', [Dashboard::class, 'index']);
+    Route::get('redirects', [AuthenticatedSessionController::class, 'index']);
 });
 
-//Route::get('/', [WelcomeController::class, 'show']);
-//Route::get('/profile', [ProfileController::class, 'show']);
-//Route::get('/racing', [RacingController::class, 'show']);
-//Route::get('/football', [FootballController::class, 'show']);
-//Route::resource('/faq', FaqController::class);
-//Route::resource('/blog', BlogController::class);
-//Route::resource('/grade', GradeController::class);
 require __DIR__.'/auth.php';
