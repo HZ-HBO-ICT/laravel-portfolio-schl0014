@@ -44,4 +44,12 @@ class PasswordResetLinkController extends Controller
                     : back()->withInput($request->only('email'))
                             ->withErrors(['email' => __($status)]);
     }
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|string|min:8|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+        ];
+    }
 }

@@ -13,19 +13,39 @@
         }
     </style>
     <title>Home</title>
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">`
-{{--    <link rel="stylesheet" href="./css/style.css"/>--}}
+{{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">`--}}
+    <link rel="stylesheet" href="./css/style.css"/>
 </head>
 
 <body>
 
 <!--navigatiebar  -->
+
+
+
+
 <nav class="navbar">
-    <a class ="{{Request::path()==='/'? 'background' : ''}}" href="{{asset('/')}}">Home</a>
-    <a class ="{{Request::path()==='profile'? 'background' : ''}}" href="{{asset('profile')}}">Profile</a>
-    <a class ="{{Request::path()==='grade'? 'background' : ''}}" href="{{{asset('grade')}}}">Dashboard</a>
-    <a class ="{{Request::path()==='faq'? 'background' : ''}}" href="{{asset('faq')}}">FAQ</a>
-    <a class ="{{Request::path()==='blog'? 'background' : ''}}" href="{{asset('blog')}}">Blog</a>
+    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <x-nav-link href="{{asset('/')}}" :active="request()->routeIs('dashboard')">
+            {{ __('Dashboard') }}
+        </x-nav-link>
+
+        <x-nav-link href="{{asset('/profile')}}" :active="request()->routeIs('welcome')">
+            {{ __('Welcome') }}
+        </x-nav-link>
+
+        <x-nav-link href="{{asset('grade')}}" :active="request()->routeIs('grade')">
+            {{ __('Profile') }}
+        </x-nav-link>
+        <x-nav-link href="{{asset('faq')}}" :active="request()->routeIs('faq')">
+            {{ __('Faq') }}
+        </x-nav-link>
+        <x-nav-link href="{{asset('blog')}}" :active="request()->routeIs('blog')">
+            {{ __('Blog') }}
+        </x-nav-link>
+    </div>
+    </div>
+
     <!-- Settings Dropdown -->
     <div class="hidden sm:flex sm:items-center sm:ml-6">
         <x-dropdown align="right" width="48">
@@ -142,7 +162,7 @@
 
 @endif
 
-{{--{{\http\Env\Request::path('racing') ? @yield('footer-racing') :@yield('footer')}}--}}
+
 
 
 

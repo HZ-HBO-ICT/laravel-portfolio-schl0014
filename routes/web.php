@@ -46,7 +46,7 @@ Route::resource('/grade',
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('authenticatedSession.destroy');
-    Route::get('redirects', [WelcomeController::class, 'index']);
+    Route::get('redirects', [WelcomeController::class, 'show']);
 });
 
 require __DIR__.'/auth.php';
