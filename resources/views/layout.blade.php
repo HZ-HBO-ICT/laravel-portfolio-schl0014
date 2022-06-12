@@ -172,4 +172,4 @@
 </body>
 
 </html>
-<script src="{{ asset('js/newsAppi.js') }}"></script>
+<script src="{{ asset('js/newsApi.js') }}"></script>

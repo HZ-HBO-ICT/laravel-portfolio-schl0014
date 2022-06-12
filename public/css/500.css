@@ -1,0 +1,18 @@
+body{
+    /*height: 95vh;*/
+    background: #000000;
+   left: 275px;
+    color: #E0E0E0;
+    top: 150px;
+    position: relative;
+    font-family: 'Fira Mono', monospace;
+    /*height:100%;*/
+    overflow: hidden
+
+}
+img{
+  left: 550px;
+    top: -275px;
+    position: relative;
+}
+

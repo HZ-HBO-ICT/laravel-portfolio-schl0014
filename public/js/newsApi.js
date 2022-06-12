@@ -3,10 +3,10 @@ console.log("JavaScript is working!");
 async function init() {
     const domElement = document.getElementById("news");
 
-    const character = await getSwapiData();
-    console.log(character.articles[0].title)
+    const api = await getSwapiData();
+    console.log(api.articles[0].title)
     const div = document.createElement('p');
-    div.innerHTML ='breaking news:' +`${character.articles[0].title}`;
+    div.innerHTML ='breaking news:' +`${api.articles[0].title}`;
     domElement.append(div);
 
     // comparison with a .then syntax
