@@ -1,0 +1,107 @@
+/* place of th center */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+
+/* The navigation bar */
+
+.navbar {
+    overflow: hidden;
+    background-color: #1f1f1f;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+/* Link in the navigation */
+
+.navbar a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px 17px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background: #0d163f;
+    color: red;
+}
+/* place the main */
+.main {
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*.column {*/
+/*    display: inline-block;*/
+/*    width:25%;*/
+/*    vertical-align: top;*/
+/*    padding-left: 80px;*/
+/*    margin-bottom: 100px;*/
+/*}*/
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    position: fixed;
+}
+/* color a */
+a {
+    color: #3fe2ff;
+}
+/* color ul */
+ul {
+    color: #3fe2ff;
+}
+
+.black {
+    color: black;
+}
+
+.white {
+    color: white;
+}
+/* the footer */
+.footer {
+    height: 2em;
+    left: 0;
+    font-size: small;
+    bottom: 0;
+    width: 100%;
+    background-color: #1f1f1f;
+    color: white;
+    text-align: center;
+}
+/* text places */
+/*h1 {*/
+/*    text-align: center;*/
+/*    font-size: 40px;*/
+/*}*/
+
+/*h2 {*/
+/*    text-align: center;*/
+/*    font-size: 30px;*/
+/*}*/
+
+/*p {*/
+/*    font-size: 25px;*/
+/*}*/
+/* block faq info */
+.block-faq {
+    border-width: 18px;
+    padding: 30px 20px 20px 20px;
+    border-color: rgb(7, 65, 65);
+    background-color: rgb(7, 65, 65);
+    border-radius: 15%;
+    text-align: center;
+}
+

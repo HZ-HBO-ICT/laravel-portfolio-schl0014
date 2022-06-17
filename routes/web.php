@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FootballController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RacingController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +21,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts/{post}', function ($post) {
-    $posts = [
-        'my-first-post' => 'Hello, this is my first blog post!',
-        'my-second-post' => 'Now I am getting the hang of this blogging thing.'
-    ];
+Route::get('/', [WelcomeController::class, 'show'])
+    ->middleware(['auth'])->name('welcome');
 
-    if (!array_key_exists($post, $posts)) {
-        abort(404, 'Sorry, that post was not found.');
-    }
+Route::get('/profile', [ProfileController::class, 'show'])
+    ->middleware(['auth'])->name('profile');
 
-    return view('post', [
-        'post' => $posts[$post]
-    ]);
+Route::resource('/blog', BlogController::class)
+    ->middleware(['auth']);
+
+Route::get('/racing', [RacingController::class, 'show'])
+    ->middleware(['auth'])->name('racing');
+
+Route::get('/football', [FootballController::class, 'show'])
+    ->middleware(['auth'])->name('football');
+
+Route::resource('/faq', FaqController::class)
+    ->middleware(['auth']);
+
+Route::resource('/grade', GradeController::class
+)->middleware(['auth']);
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('authenticatedSession.destroy');
+    Route::get('redirects', [WelcomeController::class, 'show']);
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+require __DIR__ . '/auth.php';
