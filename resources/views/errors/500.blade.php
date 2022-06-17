@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="css/500.css">
+    <link rel="stylesheet" href="{{asset("css/500.css")}}">
 </head>
 <body>
 <h1>Something went really wrong </h1>
@@ -9,5 +9,5 @@
 <h3>We apologize for this.</h3>
 <h2>Press <a href="/">back</a> to go to the home page. </h2>
 </body>
-<img src="img/4e8.jpg" alt="grumpy cat" width="350" height="250">
+<img src="{{asset("img/4e8.jpg")}}" alt="grumpy cat" width="350" height="250">
 

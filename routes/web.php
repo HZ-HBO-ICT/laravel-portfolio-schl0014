@@ -9,7 +9,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RacingController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,26 +21,25 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/',[WelcomeController::class, 'show'])
-->middleware(['auth'])->name('welcome');
+Route::get('/', [WelcomeController::class, 'show'])
+    ->middleware(['auth'])->name('welcome');
 
-Route::get('/profile',[ProfileController::class, 'show'] )->middleware(['auth'])->name('profile');
+Route::get('/profile', [ProfileController::class, 'show'])
+    ->middleware(['auth'])->name('profile');
 
-Route::resource('/blog',
-    BlogController::class
-)->middleware(['auth']);
+Route::resource('/blog', BlogController::class)
+    ->middleware(['auth']);
 
 Route::get('/racing', [RacingController::class, 'show'])
     ->middleware(['auth'])->name('racing');
 
-Route::get('/football',[FootballController::class, 'show'])
+Route::get('/football', [FootballController::class, 'show'])
     ->middleware(['auth'])->name('football');
 
 Route::resource('/faq', FaqController::class)
     ->middleware(['auth']);
 
-Route::resource('/grade',
-    GradeController::class
+Route::resource('/grade', GradeController::class
 )->middleware(['auth']);
 
 Route::group(['middleware' => ['auth']], function () {
@@ -49,4 +47,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('redirects', [WelcomeController::class, 'show']);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

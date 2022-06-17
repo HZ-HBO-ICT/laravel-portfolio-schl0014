@@ -53,7 +53,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        return view('/faqs.index');
+        return view('/faqs.create');
     }
 
     /**

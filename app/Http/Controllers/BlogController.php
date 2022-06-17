@@ -49,11 +49,11 @@ class BlogController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application
+     * @return Application|Factory|View
      */
-    public function create(): Application
+    public function create()
     {
-        return view('/blogs.index');
+        return view('/blogs.create');
     }
 
     /**
